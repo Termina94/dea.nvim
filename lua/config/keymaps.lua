@@ -26,7 +26,7 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Neotree
-vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', { desc = 'Neotree' })
+vim.keymap.set('n', '<leader>e', ':Neotree reveal<CR>', { desc = 'Neotree' })
 
 -- Buffer navigation
 vim.keymap.set('n', ']b', ':BufferNext<CR>', { desc = 'Next Buffer' })
