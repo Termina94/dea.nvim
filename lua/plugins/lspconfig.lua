@@ -136,6 +136,9 @@ return { -- LSP Configuration & Plugins
       'stylua', -- Used to format Lua code
       'rust_analyzer',
       'typescript-language-server',
+      'php-cs-fixer',
+      'twiggy-language-server',
+      'phpactor',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
