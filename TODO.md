@@ -1,7 +1,6 @@
 - Telescope design
 - git stuff
     - fugitive?
-- make start not look like shit
 - replace workspace diagnostics with current file diagnostics
 - toggleterm
     - lazygit
