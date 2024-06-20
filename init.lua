@@ -1,8 +1,10 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.g.loaded_netrwPlugin = 0
 
 require 'config.options'
 require 'config.autocmds'
+require 'config.functions'
 
 --  To check the current status of your plugins, run
 --    :Lazy

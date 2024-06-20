@@ -10,6 +10,7 @@ return { -- Useful plugin to show you pending keybinds.
       ['<leader>l'] = { name = 'LSP', _ = 'which_key_ignore' },
       ['<leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
       ['<leader>b'] = { name = 'Buffers', _ = 'which_key_ignore' },
+      ['<leader>c'] = { name = 'Commands', _ = 'which_key_ignore' },
     }
     -- visual mode
     require('which-key').register({

@@ -1,7 +1,7 @@
-Telescope design
-git stuff
-make start not look like shit
-toggleterm
+- Telescope design
+- git stuff
+    - fugitive?
+- make start not look like shit
+- replace workspace diagnostics with current file diagnostics
+- toggleterm
     - lazygit
-    - migration helper
-

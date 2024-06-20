@@ -139,6 +139,8 @@ return { -- LSP Configuration & Plugins
       'php-cs-fixer',
       'twiggy-language-server',
       'phpactor',
+      'css-lsp',
+      'eslint-lsp',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

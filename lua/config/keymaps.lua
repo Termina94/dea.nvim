@@ -1,5 +1,3 @@
-vim.keymap.set('n', '<Esc>', ':nohlsearch<CR>')
-
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Prev Diagnostic' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Next Diagnostic' })
@@ -48,8 +46,8 @@ vim.keymap.set('n', '<leader>bb', ':BufferPick<cr>', { desc = 'Quick Buffer' })
 vim.keymap.set('n', '<leader>bCs', ':BufferPickDelete<cr>', { desc = 'Select Buffer' })
 
 -- Hunk navigation
-vim.keymap.set('n', ']g', ':Gitsigns prev_hunk<CR>', { desc = 'Next Hunk' })
-vim.keymap.set('n', '[g', ':Gitsigns next_hunk<CR>', { desc = 'Previous Hunk' })
+vim.keymap.set('n', '[g', ':Gitsigns prev_hunk<CR>', { desc = 'Next Hunk' })
+vim.keymap.set('n', ']g', ':Gitsigns next_hunk<CR>', { desc = 'Previous Hunk' })
 
 -- Bookmarks
 local bm = require 'bookmarks'
@@ -75,6 +73,9 @@ vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Find Diagnostic
 vim.keymap.set('n', '<leader>f<Enter>', builtin.resume, { desc = 'Find Resume' })
 vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find Recent Files ("." for repeat)' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffer' })
+
+-- Copy migration command to clipboard
+vim.api.nvim_set_keymap('n', '<leader>cm', ':lua copy_migration_command_to_clipboard()<CR>', { desc = 'Copy Migration Command', noremap = true, silent = true })
 
 -- Slightly advanced example of overriding default behavior and theme
 vim.keymap.set('n', '<leader>/', function()

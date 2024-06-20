@@ -27,3 +27,13 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGai
   command = "if mode() != 'c' | checktime | endif",
   pattern = { '*' },
 })
+
+-- Autocommand to trigger Telescope on startup
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    require('telescope.builtin').find_files {
+      prompt_title = 'Find Files',
+      cwd = vim.fn.getcwd(),
+    }
+  end,
+})
