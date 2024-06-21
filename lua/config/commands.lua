@@ -24,33 +24,37 @@ function _G.copy_migration_command_to_clipboard()
   end)
 end
 
---#region
---#region
---#region
---#region
---#region
---#region
---#region
+-- Copy migration command to clipboard
+vim.api.nvim_set_keymap('n', '<leader>cm', ':lua copy_migration_command_to_clipboard()<CR>', { desc = 'Migration Command', noremap = true, silent = true })
 
--- Define the function to prompt for a commit message and run git commands
+-- Define the function to prompt for a commit message and run git commit
 _G.git_commit = function()
-  -- Use the input function to prompt for a commit message
   local commit_message = vim.fn.input 'Commit message: '
 
-  -- Check if the commit message is not empty
   if commit_message == '' then
     print 'Aborting commit: no commit message provided.'
     return
   end
 
-  -- Define the commands to be run
-  local add_command = 'git add .'
-  local commit_command = string.format('git commit -m "%s"', commit_message)
-
   -- Execute the commands
-  vim.cmd('!' .. add_command)
-  vim.cmd('!' .. commit_command)
+  vim.cmd('!' .. 'git add .')
+  vim.cmd('!' .. string.format('git commit -m "%s"', commit_message))
 end
 
--- Create a keybind to call the git_commit function
-vim.api.nvim_set_keymap('n', '<leader>gc', ':lua git_commit()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cc', ':lua git_commit()<CR>', { desc = 'Git commit', noremap = true, silent = true })
+
+-- Define the function to prompt for a branch name and create branch
+_G.git_create_branch = function()
+  local branch_name = vim.fn.input 'Branch name: '
+
+  if branch_name == '' then
+    print 'Aborting commit: no branch name provided.'
+    return
+  end
+
+  -- Execute the commands
+  vim.cmd('!' .. string.format('git checkout -m "%s"', branch_name))
+  vim.cmd('!' .. string.format('git push --set-upstream origin "%s"', branch_name))
+end
+
+vim.api.nvim_set_keymap('n', '<leader>cb', ':lua git_create_branch()<CR>', { desc = 'Create Branch', noremap = true, silent = true })

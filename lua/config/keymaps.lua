@@ -87,9 +87,6 @@ vim.keymap.set('n', '<leader>f<Enter>', builtin.resume, { desc = 'Find Resume' }
 vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find Recent Files ("." for repeat)' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffer' })
 
--- Copy migration command to clipboard
-vim.api.nvim_set_keymap('n', '<leader>cm', ':lua copy_migration_command_to_clipboard()<CR>', { desc = 'Copy Migration Command', noremap = true, silent = true })
-
 -- Slightly advanced example of overriding default behavior and theme
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to Telescope to change the theme, layout, etc.
