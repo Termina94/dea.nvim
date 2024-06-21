@@ -4,7 +4,7 @@ vim.g.loaded_netrwPlugin = 0
 
 require 'config.options'
 require 'config.autocmds'
-require 'config.functions'
+require 'config.commands'
 
 --  To check the current status of your plugins, run
 --    :Lazy

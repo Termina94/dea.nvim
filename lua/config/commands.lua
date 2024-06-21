@@ -23,3 +23,34 @@ function _G.copy_migration_command_to_clipboard()
     end
   end)
 end
+
+--#region
+--#region
+--#region
+--#region
+--#region
+--#region
+--#region
+
+-- Define the function to prompt for a commit message and run git commands
+_G.git_commit = function()
+  -- Use the input function to prompt for a commit message
+  local commit_message = vim.fn.input 'Commit message: '
+
+  -- Check if the commit message is not empty
+  if commit_message == '' then
+    print 'Aborting commit: no commit message provided.'
+    return
+  end
+
+  -- Define the commands to be run
+  local add_command = 'git add .'
+  local commit_command = string.format('git commit -m "%s"', commit_message)
+
+  -- Execute the commands
+  vim.cmd('!' .. add_command)
+  vim.cmd('!' .. commit_command)
+end
+
+-- Create a keybind to call the git_commit function
+vim.api.nvim_set_keymap('n', '<leader>gc', ':lua git_commit()<CR>', { noremap = true, silent = true })
