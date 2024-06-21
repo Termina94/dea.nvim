@@ -23,6 +23,19 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Git
+vim.keymap.set('n', '<leader>gb', ':Gitsigns blame_line<CR>', { desc = 'Blame Line' })
+vim.keymap.set('n', '<leader>gB', ':Git blame<CR>', { desc = 'Blame File' })
+
+vim.keymap.set('n', '<leader>ghp', ':Gitsigns preview_hunk<CR>', { desc = 'Preview Hunk' })
+vim.keymap.set('n', '<leader>ghr', ':Gitsigns reset_hunk<CR>', { desc = 'Reset Hunk' })
+vim.keymap.set('n', '<leader>ghs', ':Gitsigns stage_hunk<CR>', { desc = 'Stage Hunk' })
+vim.keymap.set('n', '<leader>ghu', ':Gitsigns undo_stage_hunk<CR>', { desc = 'Undo Stage Hunk' })
+
+vim.keymap.set('n', '<leader>gf', ':Telescope git_status<CR>', { desc = 'Changed Files' })
+vim.keymap.set('n', '<leader>fB', ':Telescope git_branches<CR>', { desc = 'Find Branch' })
+vim.keymap.set('n', '<leader>gd', ':Gvdiffsplit<CR>', { desc = 'Git Diff' })
+
 -- Neotree
 vim.keymap.set('n', '<leader>e', ':Neotree reveal<CR>', { desc = 'Neotree' })
 

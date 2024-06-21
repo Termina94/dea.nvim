@@ -25,7 +25,6 @@ return { -- LSP Configuration & Plugins
         map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
         map('gr', require('telescope.builtin').lsp_references, 'Goto References')
         map('gI', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
-        map('<leader>gD', require('telescope.builtin').lsp_type_definitions, 'Type Definition')
 
         map('<leader>ld', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
         map('<leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
