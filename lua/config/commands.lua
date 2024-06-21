@@ -53,7 +53,7 @@ _G.git_create_branch = function()
   end
 
   -- Execute the commands
-  vim.cmd('!' .. string.format('git checkout -m "%s"', branch_name))
+  vim.cmd('!' .. string.format('git checkout -b "%s"', branch_name))
   vim.cmd('!' .. string.format('git push --set-upstream origin "%s"', branch_name))
 end
 
