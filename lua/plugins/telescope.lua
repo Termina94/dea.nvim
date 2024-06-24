@@ -1,4 +1,5 @@
-return { -- Fuzzy Finder (files, lsp, etc)
+return {
+  -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
   branch = '0.1.x',
@@ -23,17 +24,38 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
+    local top_picker = function(width, height)
+      return {
+        previewer = false,
+        path_display = { truncate = 2 },
+        border = true,
+        prompt_title = false,
+        results_title = false,
+        sorting_strategy = 'ascending',
+        layout_config = {
+          anchor = 'N',
+          prompt_position = 'top',
+          height = height,
+          width = width,
+        },
+      }
+    end
+
     require('telescope').setup {
       pickers = {
-        find_files = {
-          hidden = true,
-        },
+        git_branches = top_picker(0.4, 0.3),
+        git_files = top_picker(0.5, 0.3),
       },
       defaults = {
         file_ignore_patterns = {
           'node_modules',
           'var',
           'assets',
+        },
+        path_display = { truncate = 2 },
+        layout_strategy = 'horizontal',
+        layout_config = {
+          preview_width = 0.5,
         },
       },
       extensions = {

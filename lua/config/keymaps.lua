@@ -34,8 +34,12 @@ vim.keymap.set('n', '<leader>ghr', ':Gitsigns reset_hunk<CR>', { desc = 'Reset H
 vim.keymap.set('n', '<leader>ghs', ':Gitsigns stage_hunk<CR>', { desc = 'Stage Hunk' })
 vim.keymap.set('n', '<leader>ghu', ':Gitsigns undo_stage_hunk<CR>', { desc = 'Undo Stage Hunk' })
 
-vim.keymap.set('n', '<leader>gf', ':Telescope git_status<CR>', { desc = 'Changed Files' })
-vim.keymap.set('n', '<leader>fB', ':Telescope git_branches<CR>', { desc = 'Find Branch' })
+vim.keymap.set('n', '<leader>gg', ':Telescope git_status<CR>', { desc = 'Git Status' })
+vim.keymap.set('n', '<leader>go', ':Telescope git_branches<CR>', { desc = 'Open Branch' })
+vim.keymap.set('n', '<leader>gc', ':Telescope git_bcommits<CR>', { desc = 'Commits (File)' })
+vim.keymap.set('n', '<leader>gC', ':Telescope git_commits<CR>', { desc = 'Commits (Branch)' })
+vim.keymap.set('n', '<leader>gf', ':Telescope git_files<CR>', { desc = 'Git Files' })
+
 vim.keymap.set('n', '<leader>gd', ':Gvdiffsplit<CR>', { desc = 'Git Diff' })
 
 -- Neotree
@@ -80,7 +84,8 @@ vim.keymap.set('n', '<leader>mx', bm.bookmark_clear_all, { desc = 'Clear All' })
 local builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Find Help' })
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Find Keymaps' })
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find Files' })
+vim.keymap.set('n', '<leader>ff', builtin.git_files, { desc = 'Find Files' })
+vim.keymap.set('n', '<leader>fe', builtin.find_files, { desc = 'Explore Files' })
 vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = 'Find Select Telescope' })
 vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = 'Find current Word' })
 vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = 'Find by words' })
