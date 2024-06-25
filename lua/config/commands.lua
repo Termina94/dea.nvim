@@ -58,3 +58,36 @@ _G.git_create_branch = function()
 end
 
 vim.api.nvim_set_keymap('n', '<leader>cb', ':lua git_create_branch()<CR>', { desc = 'Create Branch', noremap = true, silent = true })
+
+local get_selection = function()
+  -- Get the start and end positions of the visual selection
+  local start_pos = vim.fn.getpos "'<"
+  local end_pos = vim.fn.getpos "'>"
+
+  -- Extract lines from start to end
+  local lines = vim.fn.getline(start_pos[2], end_pos[2])
+
+  -- If the selection is within a single line
+  if #lines == 1 then
+    lines[1] = string.sub(lines[1], start_pos[3], end_pos[3])
+  else
+    -- Adjust the start and end lines
+    lines[1] = string.sub(lines[1], start_pos[3])
+    lines[#lines] = string.sub(lines[#lines], 1, end_pos[3])
+  end
+
+  -- Concatenate the lines into a single string
+  return table.concat(lines, '\n')
+end
+
+_G.find_current_selection = function()
+  -- Search for the selected text using Telescope
+  require('telescope.builtin').grep_string { search = get_selection() }
+end
+
+_G.global_search_word = function()
+  local input = vim.fn.input 'Search: '
+
+  -- Search for the selected text using Telescope
+  require('telescope.builtin').grep_string { search = input }
+end

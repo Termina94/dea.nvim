@@ -15,7 +15,7 @@ return { -- Useful plugin to show you pending keybinds.
     }
     -- visual mode
     require('which-key').register({
-      ['<leader>h'] = { 'Git Hunk' },
+      ['<leader>f'] = { name = 'Find', _ = 'which_key_ignore' },
     }, { mode = 'v' })
   end,
 }
