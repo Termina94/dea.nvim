@@ -12,6 +12,7 @@ return { -- Useful plugin to show you pending keybinds.
       ['<leader>gh'] = { name = 'Hunks', _ = 'which_key_ignore' },
       ['<leader>b'] = { name = 'Buffers', _ = 'which_key_ignore' },
       ['<leader>c'] = { name = 'Commands', _ = 'which_key_ignore' },
+      ['<leader>t'] = { name = 'Toggle', _ = 'which_key_ignore' },
     }
     -- visual mode
     require('which-key').register({

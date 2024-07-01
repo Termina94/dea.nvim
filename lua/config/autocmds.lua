@@ -28,14 +28,21 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGai
   pattern = { '*' },
 })
 
--- Autocommand to trigger Telescope on startup
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
-    if vim.fn.argc() == 0 then
-      require('telescope.builtin').git_files {
-        prompt_title = 'Find Files',
-        cwd = vim.fn.getcwd(),
-      }
-    end
+    -- Command to open Neo-tree
+    vim.cmd 'Neotree'
   end,
 })
+
+-- Autocommand to trigger Telescope on startup
+-- vim.api.nvim_create_autocmd('VimEnter', {
+--   callback = function()
+--     if vim.fn.argc() == 0 then
+--       require('telescope.builtin').git_files {
+--         prompt_title = 'Find Files',
+--         cwd = vim.fn.getcwd(),
+--       }
+--     end
+--   end,
+-- })

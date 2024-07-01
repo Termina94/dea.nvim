@@ -46,45 +46,52 @@ vim.keymap.set('n', '<leader>gd', ':Gvdiffsplit<CR>', { desc = 'Git Diff' })
 vim.keymap.set('n', '<leader>e', ':Neotree reveal<CR>', { desc = 'Neotree' })
 
 -- Buffer navigation
-vim.keymap.set('n', ']b', ':BufferNext<CR>', { desc = 'Next Buffer' })
-vim.keymap.set('n', '[b', ':BufferPrevious<CR>', { desc = 'Previous Buffer' })
-vim.keymap.set('n', 'L', ':BufferNext<CR>', { desc = 'Next Buffer' })
-vim.keymap.set('n', 'H', ':BufferPrevious<CR>', { desc = 'Previous Buffer' })
+vim.keymap.set('n', ']b', ':tabn<CR>', { desc = 'Next Buffer' })
+vim.keymap.set('n', '[b', ':tabp<CR>', { desc = 'Previous Buffer' })
+vim.keymap.set('n', 'L', ':bnext<CR>', { desc = 'Next Buffer' })
+vim.keymap.set('n', 'H', ':bprevious<CR>', { desc = 'Previous Buffer' })
 vim.keymap.set('n', '<leader>bn', ':enew<CR>', { desc = 'New Buffer' })
 vim.keymap.set('n', '<leader>bf', ':Telescope buffers previewer=false<cr>', { desc = 'Find Buffer' })
-vim.keymap.set('n', '<leader>be', ':Telescope buffers<cr>', { desc = 'Explore Buffers' })
+vim.keymap.set('n', '<leader>be', ':Telescope buffers<CR>', { desc = 'Explore Buffers' })
+vim.keymap.set('n', '<leader>bc', ':tabclose<CR>', { desc = 'Close Buffer' })
+vim.keymap.set('n', '<leader>bo', ':tabonly<CR>', { desc = 'Close Others' })
 
+-- Toggle
+vim.keymap.set('n', '<leader>tn', ':set invnumber<CR>', { desc = 'Numbers' })
+vim.keymap.set('n', '<leader>tw', ':set wrap!<CR>', { desc = 'Numbers' })
+
+-- Disabled because barbar was being buggy
+--
 -- Buffer close menu
-vim.keymap.set('n', '<leader>bC', 'which_key_ignore', { desc = 'Close' })
-vim.keymap.set('n', '<leader>bc', ':BufferClose<cr>', { desc = 'Close Buffer' })
-vim.keymap.set('n', '<leader>bCo', ':BufferCloseAllButCurrentOrPinned<cr>', { desc = 'Close Others' })
-vim.keymap.set('n', '<leader>bCa', ':BufferCloseAllButPinned<cr>', { desc = 'Close All' })
-vim.keymap.set('n', '<leader>bC<', ':BufferCloseBuffersLeft<cr>', { desc = 'Close All Left' })
-vim.keymap.set('n', '<leader>bC>', ':BufferCloseBuffersRight<cr>', { desc = 'Close All Right' })
-vim.keymap.set('n', '<leader>bb', ':BufferPick<cr>', { desc = 'Quick Buffer' })
-vim.keymap.set('n', '<leader>bCs', ':BufferPickDelete<cr>', { desc = 'Select Buffer' })
+-- vim.keymap.set('n', '<leader>bC', 'which_key_ignore', { desc = 'Close' })
+-- vim.keymap.set('n', '<leader>bCo', ':BufferCloseAllButCurrentOrPinned<CR>', { desc = 'Close Others' })
+-- vim.keymap.set('n', '<leader>bCa', ':BufferCloseAllButPinned<CR>', { desc = 'Close All' })
+-- vim.keymap.set('n', '<leader>bC<', ':BufferCloseBuffersLeft<CR>', { desc = 'Close All Left' })
+-- vim.keymap.set('n', '<leader>bC>', ':BufferCloseBuffersRight<CR>', { desc = 'Close All Right' })
+-- vim.keymap.set('n', '<leader>bb', ':BufferPick<CR>', { desc = 'Quick Buffer' })
+-- vim.keymap.set('n', '<leader>bCs', ':BufferPickDelete<CR>', { desc = 'Select Buffer' })
 
 -- Hunk navigation
 vim.keymap.set('n', '[g', ':Gitsigns prev_hunk<CR>', { desc = 'Next Hunk' })
 vim.keymap.set('n', ']g', ':Gitsigns next_hunk<CR>', { desc = 'Previous Hunk' })
 
--- Bookmarks
-local bm = require 'bookmarks'
-vim.keymap.set('n', '<leader>m', 'which_key_ignore', { desc = 'Marks' })
-vim.keymap.set('n', '<leader>mf', ':Telescope bookmarks list<cr>', { desc = 'Find' })
-vim.keymap.set('n', '<leader>mm', bm.bookmark_toggle, { desc = 'Mark' })
-vim.keymap.set('n', '<leader>me', bm.bookmark_ann, { desc = 'Edit' })
-vim.keymap.set('n', '<leader>mc', bm.bookmark_clean, { desc = 'Clean' })
-vim.keymap.set('n', '<leader>mn', bm.bookmark_next, { desc = 'Next' })
-vim.keymap.set('n', '<leader>mb', bm.bookmark_prev, { desc = 'Back' })
-vim.keymap.set('n', '<leader>ml', ':Telescope bookmarks list previewer=false<cr>', { desc = 'List' })
-vim.keymap.set('n', '<leader>mx', bm.bookmark_clear_all, { desc = 'Clear All' })
+-- -- Bookmarks
+-- local bm = require 'bookmarks'
+-- vim.keymap.set('n', '<leader>m', 'which_key_ignore', { desc = 'Marks' })
+-- vim.keymap.set('n', '<leader>mf', ':Telescope bookmarks list<cr>', { desc = 'Find' })
+-- vim.keymap.set('n', '<leader>mm', bm.bookmark_toggle, { desc = 'Mark' })
+-- vim.keymap.set('n', '<leader>me', bm.bookmark_ann, { desc = 'Edit' })
+-- vim.keymap.set('n', '<leader>mc', bm.bookmark_clean, { desc = 'Clean' })
+-- vim.keymap.set('n', '<leader>mn', bm.bookmark_next, { desc = 'Next' })
+-- vim.keymap.set('n', '<leader>mb', bm.bookmark_prev, { desc = 'Back' })
+-- vim.keymap.set('n', '<leader>ml', ':Telescope bookmarks list previewer=false<cr>', { desc = 'List' })
+-- vim.keymap.set('n', '<leader>mx', bm.bookmark_clear_all, { desc = 'Clear All' })
 
 -- Telescope
 local builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Find Help' })
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Find Keymaps' })
-vim.keymap.set('n', '<leader>ff', builtin.git_files, { desc = 'Find Files' })
+vim.keymap.set('n', '<leader>ff', ":lua require('telescope').extensions.file_select{}<CR>", { desc = 'Find Files' })
 vim.keymap.set('n', '<leader>fe', builtin.find_files, { desc = 'Explore Files' })
 vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = 'Find Select Telescope' })
 vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = 'Find current Word' })

@@ -43,7 +43,6 @@ return {
 
     require('telescope').setup {
       pickers = {
-        git_branches = top_picker(0.4, 0.3),
         git_files = top_picker(0.5, 0.3),
       },
       defaults = {
@@ -52,11 +51,13 @@ return {
           'var',
           'assets',
         },
+        layout_config = {
+          horizontal = {
+            preview_width = 0.5,
+          },
+        },
         path_display = { truncate = 2 },
         layout_strategy = 'horizontal',
-        layout_config = {
-          preview_width = 0.5,
-        },
       },
       extensions = {
         ['ui-select'] = {
@@ -64,6 +65,13 @@ return {
         },
       },
     }
+
+    -- Custom Pickers
+    local function file_select_picker()
+      require('telescope.builtin').find_files(top_picker(0.5, 0.3))
+    end
+
+    require('telescope').extensions.file_select = file_select_picker
 
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
