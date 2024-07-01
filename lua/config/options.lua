@@ -4,6 +4,12 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 -- vim.opt.relativenumber = true
 
+vim.diagnostic.config {
+  virtual_text = false,
+}
+
+vim.opt.wrap = false
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
