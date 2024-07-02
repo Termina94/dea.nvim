@@ -43,22 +43,27 @@ vim.keymap.set('n', '<leader>gf', ':Telescope git_files<CR>', { desc = 'Git File
 vim.keymap.set('n', '<leader>gd', ':Gvdiffsplit<CR>', { desc = 'Git Diff' })
 
 -- Neotree
-vim.keymap.set('n', '<leader>e', ':Neotree reveal<CR>', { desc = 'Neotree' })
+vim.keymap.set('n', '<leader>ee', ':Neotree toggle<CR>', { desc = 'Toggle' })
+vim.keymap.set('n', '<leader>er', ':Neotree reveal<CR>', { desc = 'Reveal' })
+vim.keymap.set('n', '<leader>ef', ':Neotree focus<CR>', { desc = 'Focus' })
+vim.keymap.set('n', '<leader>eb', ':Neotree buffers<CR>', { desc = 'Buffers' })
+vim.keymap.set('n', '<leader>eg', ':Neotree git_status<CR>', { desc = 'Git Status' })
 
--- Buffer navigation
+-- Diffview
+vim.keymap.set('n', '<leader>dd', ':DiffviewOpen<CR>', { desc = 'Open Diffs' })
+vim.keymap.set('n', '<leader>dc', ':DiffviewClose<CR>', { desc = 'Close Diffs' })
+vim.keymap.set('n', '<leader>dh', ':DiffviewFileHistory %<CR>', { desc = 'Diff History (File)' })
+vim.keymap.set('n', '<leader>dH', ':DiffviewFileHistory<CR>', { desc = 'Diff History (Branch)' })
+
+-- Navigation
 vim.keymap.set('n', ']b', ':tabn<CR>', { desc = 'Next Buffer' })
 vim.keymap.set('n', '[b', ':tabp<CR>', { desc = 'Previous Buffer' })
-vim.keymap.set('n', 'L', ':bnext<CR>', { desc = 'Next Buffer' })
-vim.keymap.set('n', 'H', ':bprevious<CR>', { desc = 'Previous Buffer' })
-vim.keymap.set('n', '<leader>bn', ':enew<CR>', { desc = 'New Buffer' })
-vim.keymap.set('n', '<leader>bf', ':Telescope buffers previewer=false<cr>', { desc = 'Find Buffer' })
-vim.keymap.set('n', '<leader>be', ':Telescope buffers<CR>', { desc = 'Explore Buffers' })
-vim.keymap.set('n', '<leader>bc', ':tabclose<CR>', { desc = 'Close Buffer' })
-vim.keymap.set('n', '<leader>bo', ':tabonly<CR>', { desc = 'Close Others' })
+vim.keymap.set('n', 'L', ':bn<CR>', { desc = 'Next Buffer' })
+vim.keymap.set('n', 'H', ':bp<CR>', { desc = 'Previous Buffer' })
 
 -- Toggle
 vim.keymap.set('n', '<leader>tn', ':set invnumber<CR>', { desc = 'Numbers' })
-vim.keymap.set('n', '<leader>tw', ':set wrap!<CR>', { desc = 'Numbers' })
+vim.keymap.set('n', '<leader>tw', ':set wrap!<CR>', { desc = 'Wrap Text' })
 
 -- Disabled because barbar was being buggy
 --

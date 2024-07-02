@@ -13,6 +13,8 @@ return { -- Useful plugin to show you pending keybinds.
       ['<leader>b'] = { name = 'Buffers', _ = 'which_key_ignore' },
       ['<leader>c'] = { name = 'Commands', _ = 'which_key_ignore' },
       ['<leader>t'] = { name = 'Toggle', _ = 'which_key_ignore' },
+      ['<leader>e'] = { name = 'Neo Tree', _ = 'which_key_ignore' },
+      ['<leader>d'] = { name = 'Diff View', _ = 'which_key_ignore' },
     }
     -- visual mode
     require('which-key').register({
