@@ -39,6 +39,7 @@ vim.keymap.set('n', '<leader>go', ':Telescope git_branches<CR>', { desc = 'Open 
 vim.keymap.set('n', '<leader>gc', ':Telescope git_bcommits<CR>', { desc = 'Commits (File)' })
 vim.keymap.set('n', '<leader>gC', ':Telescope git_commits<CR>', { desc = 'Commits (Branch)' })
 vim.keymap.set('n', '<leader>gf', ':Telescope git_files<CR>', { desc = 'Git Files' })
+vim.keymap.set('n', '<leader>gy', ':let @+=system("git branch --show-current")<CR>', { desc = 'Yank Branch' })
 
 vim.keymap.set('n', '<leader>gd', ':Gvdiffsplit<CR>', { desc = 'Git Diff' })
 
