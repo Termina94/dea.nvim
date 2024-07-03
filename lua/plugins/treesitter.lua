@@ -16,6 +16,15 @@ return { -- Highlight, edit, and navigate code
       additional_vim_regex_highlighting = { 'ruby' },
     },
     indent = { enable = true, disable = { 'ruby' } },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = '<CR>', -- set to `false` to disable one of the mappings
+        node_incremental = '<CR>',
+        scope_incremental = '<TAB>',
+        node_decremental = '<S-TAB>',
+      },
+    },
   },
   config = function(_, opts)
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -25,11 +34,9 @@ return { -- Highlight, edit, and navigate code
     ---@diagnostic disable-next-line: missing-fields
     require('nvim-treesitter.configs').setup(opts)
 
-    -- There are additional nvim-treesitter modules that you can use to interact
-    -- with nvim-treesitter. You should go explore a few and see what interests you:
-    --
-    --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-    --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    require('treesitter-context').setup {
+      max_lines = 4,
+      min_window_height = 34,
+    }
   end,
 }

@@ -1,8 +1,6 @@
 return { -- Collection of various small independent plugins/modules
   'echasnovski/mini.nvim',
   config = function()
-    require('mini.comment').setup {}
-
     require('mini.move').setup {
       mappings = {
         left = '<M-Left>',

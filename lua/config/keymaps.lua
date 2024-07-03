@@ -7,6 +7,7 @@ vim.keymap.set('n', ']D', vim.diagnostic.open_float, { desc = 'Diagnostic Messag
 vim.keymap.set('n', '[D', vim.diagnostic.setloclist, { desc = 'Diagnostic Quickfix' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('n', '<leader>n', ':tabnew ~/Documents/Notes/notes<CR>:vsplit ~/Documents/Notes/TODO<CR>', { desc = 'Notes' })
 
 -- quick save
 vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save' })
