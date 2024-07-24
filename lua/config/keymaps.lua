@@ -17,9 +17,6 @@ vim.keymap.set('n', '<C-S>', ':wa<CR>', { desc = 'Save all' })
 vim.keymap.set('n', '[<space>', ':call append(line(".")-1, "")<CR>', { desc = 'Save all' })
 vim.keymap.set('n', ']<space>', ':call append(line("."), "")<CR>', { desc = 'Save all' })
 
--- set numbers to relative
-vim.keymap.set('n', '<leader>1', ':set relativenumber!<CR>', { desc = 'Numbers' })
-
 -- Tab navigation
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -51,6 +48,9 @@ vim.keymap.set('n', '<leader>ef', ':Neotree focus<CR>', { desc = 'Focus' })
 vim.keymap.set('n', '<leader>eb', ':Neotree buffers<CR>', { desc = 'Buffers' })
 vim.keymap.set('n', '<leader>eg', ':Neotree git_status<CR>', { desc = 'Git Status' })
 
+-- DB
+vim.keymap.set('n', '<leader>D', ':tabnew<CR>:DBUI<CR>', { desc = 'Open Diffs' })
+
 -- Diffview
 vim.keymap.set('n', '<leader>dd', ':DiffviewOpen<CR>', { desc = 'Open Diffs' })
 vim.keymap.set('n', '<leader>dc', ':DiffviewClose<CR>', { desc = 'Close Diffs' })
@@ -66,49 +66,32 @@ vim.keymap.set('n', 'H', ':bp<CR>', { desc = 'Previous Buffer' })
 -- Toggle
 vim.keymap.set('n', '<leader>tn', ':set invnumber<CR>', { desc = 'Numbers' })
 vim.keymap.set('n', '<leader>tw', ':set wrap!<CR>', { desc = 'Wrap Text' })
+vim.keymap.set('n', '<leader>tr', ':set relativenumber!<CR>', { desc = 'Relative Numbers' })
 
--- Disabled because barbar was being buggy
---
--- Buffer close menu
--- vim.keymap.set('n', '<leader>bC', 'which_key_ignore', { desc = 'Close' })
--- vim.keymap.set('n', '<leader>bCo', ':BufferCloseAllButCurrentOrPinned<CR>', { desc = 'Close Others' })
--- vim.keymap.set('n', '<leader>bCa', ':BufferCloseAllButPinned<CR>', { desc = 'Close All' })
--- vim.keymap.set('n', '<leader>bC<', ':BufferCloseBuffersLeft<CR>', { desc = 'Close All Left' })
--- vim.keymap.set('n', '<leader>bC>', ':BufferCloseBuffersRight<CR>', { desc = 'Close All Right' })
--- vim.keymap.set('n', '<leader>bb', ':BufferPick<CR>', { desc = 'Quick Buffer' })
--- vim.keymap.set('n', '<leader>bCs', ':BufferPickDelete<CR>', { desc = 'Select Buffer' })
+-- Yank
+vim.keymap.set('n', '<leader>yr', ':let @+ = expand("%") .. "\\nLine: " .. line(".")<CR>', { desc = 'Reference' })
+vim.keymap.set('n', '<leader>yf', ':let @+ = expand("%")<CR>', { desc = 'File' })
 
 -- Hunk navigation
 vim.keymap.set('n', '[g', ':Gitsigns prev_hunk<CR>', { desc = 'Next Hunk' })
 vim.keymap.set('n', ']g', ':Gitsigns next_hunk<CR>', { desc = 'Previous Hunk' })
 
--- -- Bookmarks
--- local bm = require 'bookmarks'
--- vim.keymap.set('n', '<leader>m', 'which_key_ignore', { desc = 'Marks' })
--- vim.keymap.set('n', '<leader>mf', ':Telescope bookmarks list<cr>', { desc = 'Find' })
--- vim.keymap.set('n', '<leader>mm', bm.bookmark_toggle, { desc = 'Mark' })
--- vim.keymap.set('n', '<leader>me', bm.bookmark_ann, { desc = 'Edit' })
--- vim.keymap.set('n', '<leader>mc', bm.bookmark_clean, { desc = 'Clean' })
--- vim.keymap.set('n', '<leader>mn', bm.bookmark_next, { desc = 'Next' })
--- vim.keymap.set('n', '<leader>mb', bm.bookmark_prev, { desc = 'Back' })
--- vim.keymap.set('n', '<leader>ml', ':Telescope bookmarks list previewer=false<cr>', { desc = 'List' })
--- vim.keymap.set('n', '<leader>mx', bm.bookmark_clear_all, { desc = 'Clear All' })
-
 -- Telescope
 local builtin = require 'telescope.builtin'
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Find Help' })
-vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Find Keymaps' })
-vim.keymap.set('n', '<leader>ff', ":lua require('telescope').extensions.file_select{}<CR>", { desc = 'Find Files' })
+vim.keymap.set('n', '<leader>ff', ":lua require('telescope').extensions.file_select{}<CR>", { desc = 'Files' })
 vim.keymap.set('n', '<leader>fe', builtin.find_files, { desc = 'Explore Files' })
-vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = 'Find Select Telescope' })
-vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = 'Find current Word' })
-vim.keymap.set('v', '<leader>fc', ':lua find_current_selection()<CR>', { desc = 'Find selection' })
-vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = 'Find by words' })
-vim.keymap.set('n', '<leader>fW', ':lua global_search_word()<CR>', { desc = 'Find words 2' })
-vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Find Diagnostics' })
-vim.keymap.set('n', '<leader>f<Enter>', builtin.resume, { desc = 'Find Resume' })
-vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find Recent Files ("." for repeat)' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffer' })
+vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = 'Current Word' })
+vim.keymap.set('v', '<leader>fc', ':lua find_current_selection()<CR>', { desc = 'Selection' })
+vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = 'Words' })
+vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Diagnostics' })
+vim.keymap.set('n', '<leader>fW', ':lua global_search_word()<CR>', { desc = 'Words in file' })
+vim.keymap.set('n', '<leader>f<Enter>', builtin.resume, { desc = 'Resume' })
+vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Recent Files' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Buffer' })
+
+-- vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Keymaps' })
+-- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help' })
+-- vim.keymap.set('n', '<leader>ft', builtin.builtin, { desc = 'Telescope' })
 
 -- Slightly advanced example of overriding default behavior and theme
 vim.keymap.set('n', '<leader>/', function()
@@ -124,11 +107,11 @@ end, { desc = 'Search Current Buffer' })
 vim.keymap.set('n', '<leader>f/', function()
   builtin.live_grep {
     grep_open_files = true,
-    prompt_title = 'Live Grep in Open Files',
+    prompt_title = 'Live Grep in Buffers',
   }
-end, { desc = '/ in Open Files' })
+end, { desc = 'Words in buffers' })
 
 -- Shortcut for searching your Neovim configuration files
 vim.keymap.set('n', '<leader>fn', function()
   builtin.find_files { cwd = vim.fn.stdpath 'config' }
-end, { desc = 'Search Neovim files' })
+end, { desc = 'Neovim files' })

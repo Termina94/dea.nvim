@@ -3,6 +3,7 @@ return { -- Autocompletion
   event = 'InsertEnter',
   dependencies = {
     -- Snippet Engine & its associated nvim-cmp source
+    { 'hrsh7th/cmp-buffer' },
     {
       'L3MON4D3/LuaSnip',
       build = (function()
@@ -102,7 +103,7 @@ return { -- Autocompletion
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
-        { name = 'codeium' },
+        { name = 'buffer' },
       },
     }
   end,

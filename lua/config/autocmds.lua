@@ -27,3 +27,12 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGai
   command = "if mode() != 'c' | checktime | endif",
   pattern = { '*' },
 })
+
+-- Ensure the `qf` keymap is set only for quickfix buffers
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf',
+  callback = function()
+    -- Set the keymap for the qf filetype
+    vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', ':cc<CR>', { noremap = true, silent = true })
+  end,
+})

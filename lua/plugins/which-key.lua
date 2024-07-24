@@ -1,24 +1,23 @@
-return { -- Useful plugin to show you pending keybinds.
+return {
   'folke/which-key.nvim',
-  event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-  config = function() -- This is the function that runs, AFTER loading
+  event = 'VimEnter',
+  config = function()
     require('which-key').setup()
 
-    -- Document existing key chains
-    require('which-key').register {
-      ['<leader>f'] = { name = 'Find', _ = 'which_key_ignore' },
-      ['<leader>l'] = { name = 'LSP', _ = 'which_key_ignore' },
-      ['<leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
-      ['<leader>gh'] = { name = 'Hunks', _ = 'which_key_ignore' },
-      ['<leader>b'] = { name = 'Buffers', _ = 'which_key_ignore' },
-      ['<leader>c'] = { name = 'Commands', _ = 'which_key_ignore' },
-      ['<leader>t'] = { name = 'Toggle', _ = 'which_key_ignore' },
-      ['<leader>e'] = { name = 'Neo Tree', _ = 'which_key_ignore' },
-      ['<leader>d'] = { name = 'Diff View', _ = 'which_key_ignore' },
+    require('which-key').add {
+      { '<leader>f', group = 'Find' },
+      { '<leader>l', group = 'LSP' },
+      { '<leader>g', group = 'Git' },
+      { '<leader>gh', group = 'Hunks' },
+      { '<leader>c', group = 'Commands' },
+      { '<leader>t', group = 'Toggle' },
+      { '<leader>y', group = 'Yank' },
+      { '<leader>e', group = 'Explorer' },
+      { '<leader>d', group = 'Diff View' },
     }
     -- visual mode
-    require('which-key').register({
-      ['<leader>f'] = { name = 'Find', _ = 'which_key_ignore' },
+    require('which-key').add({
+      { '<leader>f', name = 'Find' },
     }, { mode = 'v' })
   end,
 }
