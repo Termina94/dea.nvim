@@ -28,6 +28,7 @@ return {
       return {
         previewer = false,
         path_display = { truncate = 2 },
+        hidden = true,
         border = true,
         prompt_title = false,
         results_title = false,
@@ -44,6 +45,12 @@ return {
     require('telescope').setup {
       pickers = {
         git_files = top_picker(0.5, 0.3),
+        find_files = { hidden = true },
+        live_grep = {
+          additional_args = function(_)
+            return { '--hidden' }
+          end,
+        },
       },
       defaults = {
         file_ignore_patterns = {
@@ -51,6 +58,7 @@ return {
           'var',
           'assets',
         },
+        hidden = true,
         layout_config = {
           horizontal = {
             preview_width = 0.5,
