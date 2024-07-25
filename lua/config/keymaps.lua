@@ -71,6 +71,7 @@ vim.keymap.set('n', '<leader>tr', ':set relativenumber!<CR>', { desc = 'Relative
 -- Yank
 vim.keymap.set('n', '<leader>yr', ':let @+ = expand("%") .. "\\nLine: " .. line(".")<CR>', { desc = 'Reference' })
 vim.keymap.set('n', '<leader>yf', ':let @+ = expand("%")<CR>', { desc = 'File' })
+vim.keymap.set('n', '<leader>yu', ':let @+ = "bin/phpunit " .. expand("%")<CR>', { desc = 'Unit Test' })
 
 -- Hunk navigation
 vim.keymap.set('n', '[g', ':Gitsigns prev_hunk<CR>', { desc = 'Next Hunk' })
