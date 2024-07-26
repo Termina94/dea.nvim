@@ -7,7 +7,7 @@ vim.keymap.set('n', ']D', vim.diagnostic.open_float, { desc = 'Diagnostic Messag
 vim.keymap.set('n', '[D', vim.diagnostic.setloclist, { desc = 'Diagnostic Quickfix' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-vim.keymap.set('n', '<leader>n', ':tabnew ~/Documents/Notes/notes<CR>:vsplit ~/Documents/Notes/TODO<CR>', { desc = 'Notes' })
+vim.keymap.set('n', '<leader>n', ':tabnew ~/Documents/Notes/notes.md<CR>:vsplit ~/Documents/Notes/TODO.md<CR>', { desc = 'Notes' })
 
 -- quick save
 vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save' })
@@ -71,6 +71,7 @@ vim.keymap.set('n', '<leader>tr', ':set relativenumber!<CR>', { desc = 'Relative
 -- Yank
 vim.keymap.set('n', '<leader>yr', ':let @+ = expand("%") .. "\\nLine: " .. line(".")<CR>', { desc = 'Reference' })
 vim.keymap.set('n', '<leader>yf', ':let @+ = expand("%")<CR>', { desc = 'File' })
+vim.keymap.set('n', '<leader>yc', ':normal ggVGy<CR>', { desc = 'Content' })
 vim.keymap.set('n', '<leader>yu', ':let @+ = "bin/phpunit " .. expand("%")<CR>', { desc = 'Unit Test' })
 
 -- Hunk navigation

@@ -140,6 +140,7 @@ return { -- LSP Configuration & Plugins
       'phpactor',
       'css-lsp',
       'eslint-lsp',
+      'marksman',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
