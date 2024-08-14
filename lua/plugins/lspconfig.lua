@@ -137,10 +137,12 @@ return { -- LSP Configuration & Plugins
       'typescript-language-server',
       'php-cs-fixer',
       'twiggy-language-server',
-      'phpactor',
       'css-lsp',
       'eslint-lsp',
       'marksman',
+      'intelephense',
+      -- using intelephense for now as phpactor's GoTo Reference is very slow and giving duplicates
+      -- 'phpactor',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

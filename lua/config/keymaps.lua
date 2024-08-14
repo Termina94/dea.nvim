@@ -37,12 +37,14 @@ vim.keymap.set('n', '<leader>go', ':Telescope git_branches<CR>', { desc = 'Open 
 vim.keymap.set('n', '<leader>gc', ':Telescope git_bcommits<CR>', { desc = 'Commits (File)' })
 vim.keymap.set('n', '<leader>gC', ':Telescope git_commits<CR>', { desc = 'Commits (Branch)' })
 vim.keymap.set('n', '<leader>gf', ':Telescope git_files<CR>', { desc = 'Git Files' })
+vim.keymap.set('n', '<leader>gs', ':Telescope git_stash<CR>', { desc = 'Git Stashes' })
 vim.keymap.set('n', '<leader>gy', ':let @+=system("git branch --show-current")<CR>', { desc = 'Yank Branch' })
 
 vim.keymap.set('n', '<leader>gd', ':Gvdiffsplit<CR>', { desc = 'Git Diff' })
 
 -- Neotree
 vim.keymap.set('n', '<leader>ee', ':Neotree toggle<CR>', { desc = 'Toggle' })
+vim.keymap.set('n', '<leader>ec', ':Neotree close<CR>', { desc = 'Toggle' })
 vim.keymap.set('n', '<leader>er', ':Neotree reveal<CR>', { desc = 'Reveal' })
 vim.keymap.set('n', '<leader>ef', ':Neotree focus<CR>', { desc = 'Focus' })
 vim.keymap.set('n', '<leader>eb', ':Neotree buffers<CR>', { desc = 'Buffers' })

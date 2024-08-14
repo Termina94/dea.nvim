@@ -1,1 +1,1 @@
-return { 'MeanderingProgrammer/markdown.nvim', opts = {} }
+return { 'MeanderingProgrammer/markdown.nvim' }
