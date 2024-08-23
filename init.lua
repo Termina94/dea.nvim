@@ -1,6 +1,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.loaded_netrwPlugin = 0
+vim.opt.spell = true
+vim.opt.spelllang = 'en_gb'
 
 require 'config.options'
 require 'config.autocmds'

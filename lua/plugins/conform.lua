@@ -25,7 +25,7 @@ return { -- Autoformat
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      javascript = { { 'eslint' } },
+      javascript = { stop_after_first_option = { 'eslint' } },
     },
   },
 }

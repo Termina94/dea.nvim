@@ -2,7 +2,9 @@ return {
   'shaunsingh/nord.nvim',
   priority = 1000,
   init = function()
-    -- vim.cmd.hi 'Comment gui=none'
+    vim.cmd.hi 'Comment gui=none'
+
+    vim.g.nord_disable_background = true
 
     require('nord').set()
 
