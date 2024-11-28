@@ -1,4 +1,4 @@
-return { -- Autoformat
+return {
   'stevearc/conform.nvim',
   lazy = false,
   keys = {
@@ -11,12 +11,10 @@ return { -- Autoformat
       desc = 'Format',
     },
   },
+  -- event = { 'BufReadPre', 'BufNewFile' },
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
-      -- Disable "format_on_save lsp_fallback" for languages that don't
-      -- have a well standardized coding style. You can add additional
-      -- languages here or re-enable it for the disabled ones.
       local disable_filetypes = { c = true, cpp = true }
       return {
         timeout_ms = 500,
@@ -26,6 +24,7 @@ return { -- Autoformat
     formatters_by_ft = {
       lua = { 'stylua' },
       javascript = { stop_after_first_option = { 'eslint' } },
+      php = { 'php_cs_fixer' },
     },
   },
 }
