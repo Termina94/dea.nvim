@@ -7,7 +7,7 @@ return { -- Collection of various small independent plugins/modules
         lualine_c = {
           {
             'filename',
-            path = 1,
+            path = 4,
           },
         },
       },
