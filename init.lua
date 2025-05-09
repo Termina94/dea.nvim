@@ -4,19 +4,14 @@ vim.g.loaded_netrwPlugin = 0
 vim.opt.spell = true
 vim.opt.spelllang = 'en_gb'
 
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+
 require 'config.options'
 require 'config.autocmds'
 require 'config.commands'
 
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
 require('lazy').setup('plugins', {
   change_detection = {
     notify = false,
