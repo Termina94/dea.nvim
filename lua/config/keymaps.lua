@@ -94,6 +94,9 @@ vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Recent Files' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Buffer' })
 vim.keymap.set('n', '<leader>fh', ':Telescope find_files hidden=true no_ignore=true<CR>', { desc = 'Hidden' })
 
+-- Commands
+vim.keymap.set('n', '<leader>cf', ':%!jq .', { desc = 'JSON Format' })
+
 -- vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Keymaps' })
 -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help' })
 -- vim.keymap.set('n', '<leader>ft', builtin.builtin, { desc = 'Telescope' })
