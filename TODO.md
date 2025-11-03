@@ -1,6 +1,0 @@
-- Telescope design
-- git stuff
-    - fugitive?
-- replace workspace diagnostics with current file diagnostics
-- toggleterm
-    - lazygit
